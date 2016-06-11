@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>runcode</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="Author" content="Sheneyan" />
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript">
+
+</script>
+<style type="text/css">
+div.xx{border:solid 1px;overflow:hidden;}
+div.xx h5{border:solid 1px;border-width:0 0 1px;padding:0;margin:0;height:30px;line-height:30px;cursor:pointer;background:#eee;}
+.cleat{ width:100px; height:30px; background:#ccc; }
+
+
+
+.showbox{
+    border:1px solid #ff0000;
+
+}
+
+.showbox .content{
+  height:180px;
+  overflow:hidden;
+}
+.showbox .content.on{
+    height:auto;
+}
+.showbox .more.active{
+    color:red;
+}
+</style>
+</head>
+<body>
+
+<div class="showbox">
+    <div class="content">
+        <div class="warp">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+          <p>4</p>
+          <p>5</p>
+          <p>6</p>
+          <p>7</p>
+          <p>8</p>
+          <p>9</p>
+          <p>10</p>
+          <p>11</p>
+          <p>12</p>
+          <p>13</p>
+          <p>14</p>
+          <p>15</p>
+          <p>16</p>
+          <p>17</p>
+          <p>18</p>
+          <p>19</p>
+          <p>20</p>
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="more">更多</a>
+</div>
+<div class="showbox">
+    <div class="content">
+        <div class="warp">
+          <p>1</p>
+          <p>2</p>
+          <p>3</p>
+      
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="more">更多</a>
+</div>
+
+
+
+<div class="showbox">
+    <div class="content">
+        <div class="warp">
+          <p>1 itme</p>
+          <p>2 itme</p>
+          <p>3 itme</p>
+          <p>4 itme</p>
+          <p>5 itme</p>
+          <p>6 itme</p>
+        </div>
+    </div>
+    <a href="javascript:void(0)" class="more">更多</a>
+</div>
+
+
+<script type="text/javascript">
+
+    /**
+     * 判断更多是否显示
+     */
+    
+
+    $(function(){
+
+        $(".showbox").each(function(){
+            if($(this).find(".warp").height()<180){
+                $(this).find(".more").hide();
+                $(this).find(".content").css({
+                    height:"auto"
+                });
+
+
+            }else{
+                $(this).find(".more").show();
+                $(this).find(".content").css({
+                    height:"180px"
+                });
+            }
+        })
+
+    })
+    
+
+    
+    /**
+     * 操作展开收回
+     */
+    
+    $(".showbox .more").on("click",function(){
+        var p=$(this).parents(".showbox");
+        if(!p.find(".content").hasClass("on")){
+            p.find(".content").addClass("on").css({
+                height:"auto"
+            });
+            $(this).addClass("active").html("收回")
+        }else{
+            p.find(".content").removeClass("on").css({
+                height:"180px"
+            })
+            $(this).removeClass("active").html("更多")
+        }
+    })
+</script>
+
+
+
+</body>
+</html>
